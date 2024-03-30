@@ -113,7 +113,7 @@ module.exports = {
                   .setTimestamp()
               );
 
-              cooldowns.set(userId, currentTime + 1200000); // 15 dakika = 900000 milisaniye
+              cooldowns.set(userId, currentTime + 0); // 15 dakika = 900000 milisaniye
 
               setTimeout(() => {
                 cooldowns.delete(userId);
@@ -121,7 +121,7 @@ module.exports = {
                 // Cooldown süresi bittiğinde belirli bir kanala mesaj gönder
                 const cooldownChannel = message.client.channels.cache.get(config.genCooldownChannel);
 
-              }, 1200000);
+              }, 0);
 
               if (error) return log.error(error);
             });
